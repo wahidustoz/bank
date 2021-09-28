@@ -10,3 +10,5 @@ from Account import Account
 # print(hamkorBank.getHistory())
 
 db = Storage('bank.db')
+
+print(db.accountNumberExists(123455))

@@ -41,6 +41,11 @@ class Storage:
                 values({ac.id}, {ac.accountNumber}, {ac.name})"""
         self.__executeCommand(cmd)
     
+    def accountNumberExists(self, accountNumber:int) -> bool:
+        
+        cmd = f"select * from accounts where accountNumber = {accountNumber} limit 1;"
+        self.cursor.execute(cmd)
+        return len(self.cursor.fetchall()) > 0
 
     def __executeCommand(self, command:str, commit:bool=False):
         self.cursor.execute(command)
